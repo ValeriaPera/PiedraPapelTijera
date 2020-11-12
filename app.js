@@ -1,15 +1,3 @@
-/*  Variables: nombre que le damos a las cosas que gusradan info para no volver a escribir cosas muchas veces.
-no se pueden poner numeros ni espacios adelante de las variables, no se escribe con espacios entre las palabras del nombre de las variables.
-con:
- let
- const
-
-
-*/
-
-
-// en la seleccion de los elementos : si hay dos elementos que cumplen la misma definicion, agarra al primero que aparece, de arriba para abajo
-
 let puntajesUsuaria = document.querySelector(".puntaje-usuaria p");
 let puntajesComputadora = document.querySelector(".puntaje-computadora p")
 
@@ -29,7 +17,17 @@ let manoUsuaria = document.querySelector(".mano-usuaria")
 let manoComputadora = document.querySelector(".mano-computadora")
 let tablero = document.querySelector(".tablero")
 
+let nombreUsuario = document.querySelector(".nombre-usuario")
+
+function setNombreUsuario() {
+  nombreUsuario.innerHTML = prompt("Ingresa tu nombre")
+}
+
+setNombreUsuario()
 botonPiedra.onclick = () => {
+  resultadoTexto.textContent = "🤨"
+  manoComputadora.src = "./assets/piedra_computadora.png"
+  manoUsuaria.src = "./assets/piedra_ada.png"
   tablero.classList.add("jugando");
   setTimeout(() => {
     tablero.classList.remove("jugando")
@@ -41,6 +39,9 @@ botonPiedra.onclick = () => {
 }
 
 botonPapel.onclick = () => {
+  resultadoTexto.textContent = "🤨"
+  manoComputadora.src = "./assets/piedra_computadora.png"
+  manoUsuaria.src = "./assets/piedra_ada.png"
   tablero.classList.add("jugando");
   setTimeout(() => {
     tablero.classList.remove("jugando")
@@ -52,6 +53,9 @@ botonPapel.onclick = () => {
 }
 
 botonTijera.onclick = () => {
+  resultadoTexto.textContent = "🤨"
+  manoComputadora.src = "./assets/piedra_computadora.png"
+  manoUsuaria.src = "./assets/piedra_ada.png"
   tablero.classList.add("jugando");
   setTimeout(() => {
     tablero.classList.remove("jugando")
@@ -81,47 +85,47 @@ const obtenerEleccionComputadora = () => {
 const decidirPuntaje = () => {
   if (eleccionComputadora == "piedra") {
     if (eleccionUsuaria == "piedra") {
-      resultadoTexto.textContent = "Empate!"
+      resultadoTexto.textContent = "Empate! 😐"
     }
     else if (eleccionUsuaria == "papel") {
-      resultadoTexto.textContent = "Ganaste :)"
+      resultadoTexto.textContent = "Ganaste 😍"
       puntosUsuaria++
       puntajesUsuaria.textContent = puntosUsuaria;
     }
     else {
       puntosComputadora++
       puntajesComputadora.textContent = puntosComputadora;
-      resultadoTexto.textContent = "Perdiste :("
+      resultadoTexto.textContent = "Perdiste 😫"
     }
   }
   else if (eleccionComputadora == "papel") {
     if (eleccionUsuaria == "papel") {
-      resultadoTexto.textContent = "Empate!"
+      resultadoTexto.textContent = "Empate! 😐"
     }
     else if (eleccionUsuaria == "tijera") {
-      resultadoTexto.textContent = "Ganaste :)"
+      resultadoTexto.textContent = "Ganaste 😍"
       puntosUsuaria++
       puntajesUsuaria.textContent = puntosUsuaria;
     }
     else {
       puntosComputadora++
       puntajesComputadora.textContent = puntosComputadora;
-      resultadoTexto.textContent = "Perdiste :("
+      resultadoTexto.textContent = "Perdiste 😫"
     }
   }
   else if (eleccionComputadora == "tijera") {
     if (eleccionUsuaria == "tijera") {
-      resultadoTexto.textContent = "Empate!"
+      resultadoTexto.textContent = "Empate! 😐"
     }
     else if (eleccionUsuaria == "piedra") {
-      resultadoTexto.textContent = "Ganaste :)"
+      resultadoTexto.textContent = "Ganaste 😍"
       puntosUsuaria++
       puntajesUsuaria.textContent = puntosUsuaria;
     }
     else {
       puntosComputadora++
       puntajesComputadora.textContent = puntosComputadora;
-      resultadoTexto.textContent = "Perdiste :("
+      resultadoTexto.textContent = "Perdiste 😫"
     }
   }
 }
